@@ -21,7 +21,7 @@ object main extends App{
   var countriesList: List[Country] = Nil
 
   val result = decode[List[Country]](source) match {
-    case Right(countries) => countriesList = countries.filter(_.region == "Africa").sortBy(_.area).reverse.take(10)
+    case Right(countries) => countriesList = countries.filter(_.region == "Africa").sortBy(- _.area).take(10)
     case Left(error) => print("Oups" + error)
   }
 
